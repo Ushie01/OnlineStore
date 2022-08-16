@@ -1,0 +1,112 @@
+.center {
+    text-align: center;
+    padding: 20px;
+}
+
+.text-custom {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 0%;
+    text-align: center;
+    padding-top: 5px !important;
+    color: #ff9900 !important;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+
+.n-card {
+    border-radius: 1px;
+    width: 15rem;
+    border: 4px #000000 !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        width: 18rem !important;
+        height: 0% !important;
+        margin-top: 3rem;
+    }
+
+    .text-custom {
+        font-size: 15px !important;
+    }
+
+    .rating {
+        font-size: 8px !important;
+    }
+
+    .n-card {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+.rating {
+    text-align: left;
+    color: #c9ae16;
+    margin-left: 15px;
+}
+
+.fluid {
+    display: block;
+    max-width: 100% !important;
+    height: auto;
+}
+
+.main-holder {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.35s;
+}
+
+.main-holder>* {
+    transform: translateY(30px);
+    transition: transform 0.25s;
+}
+
+.main-holder:hover {
+    opacity: 1;
+}
+
+main-holder:hover>* {
+    transform: translateY(0);
+}
+
+.changestate:focus+#holder {
+    opacity: 1;
+}
+
+main-holder:focus>* {
+    transform: translateY(0);
+}
+
+.btn {
+    height: 35px !important;
+    background-color: #ff7b00 !important;
+    color: #fff !important;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+}
+
+
+
+.productBrand{
+    font-size: 34px;
+    color: #000000 !important;
+    font-family: 'Rubik Moonrocks', cursive;
+}

@@ -1,0 +1,65 @@
+.containerImage {
+    min-height: 600px;
+    margin-top: 90px;
+
+}
+
+.containerRow1 {
+    min-height: 600px;
+    width: 380px;
+}
+
+.containerTitle{
+    color: solid #000;
+    font-size: 50px;
+}
+
+.containerSpan{
+    color: #000;
+    font-size: 40px;
+}
+
+.containRow1{
+    object-fit: contain;
+    height: 600px;
+    width: 380px;
+
+}
+
+.containerRow2 {
+    height: 600px;
+    width: 380px;
+}
+
+.containerPadding{
+    padding: 40px;
+}
+
+.containerWrapper{
+    display: flex;
+    margin-top: 20px;
+    height: 50px;
+}
+
+.containerInput{
+    border-radius: none;
+    height: 50px;
+    
+}
+
+.description{
+    color: gray;
+}
+
+@media screen and (min-width:900px){
+    .containerImage {
+        display: flex;
+        flex-direction: row;
+        width: 800px;
+        margin: auto;
+    }
+}
+
+.addToCart{
+    margin: 6px;
+}

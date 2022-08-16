@@ -1,0 +1,122 @@
+.profile{
+    /* height:px; */
+    border: 1px solid #ededed;
+    border-top-left-radius: 10px;
+    margin: 7px;
+    padding: 7px;
+}
+
+.accountDet{
+    margin: 10px;
+}
+.accountDetails{
+    font-size: 20px;
+    font-weight: 100;
+    color: #ff7b00;
+}
+
+.userDetailsName{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px;
+}
+.userDetailsemail{
+    font-size: 20px;
+    font-weight: 100;
+    margin: 10px;
+}
+
+
+/* //Inbox */
+.emptyInbox{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+.emptyInboxP{
+    text-align: center;
+    margin-top: 10px;
+    font-size: large;
+}
+
+.emptyInboxPP{
+    text-align: center;
+    margin-top: 10px;
+    font-size: small;
+}
+
+.orderUl {
+    display: block;
+}
+
+.orderLi {
+    float: left;
+}
+
+.orderLi a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.orderLi a:hover {
+    background-color: #f2f2f2;
+}
+
+.closedOrder{
+    text-decoration: none;
+}
+
+.closedOrder:hover{
+    color: #ff7b00;
+}
+
+.continuebutton{
+    align-content: center;
+    margin: auto;
+    width: 35%;
+    padding: auto;
+}
+.orderOpenandClose{
+    display: inline;
+}
+
+#continueShopping {
+    width: 100%;
+    font-size: small;
+    color: #fff;
+    background-color: #ff7b00;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 20px;
+    height: 50px;
+    margin: auto;   
+}
+
+@media screen and (max-width:900px) {
+    .continuebutton{
+        width: 100%;
+    };
+
+}
+
+.value-quantity-o{
+    background-color: rgb(218, 214, 214);
+    padding-left: 5px;
+    border-radius: 5px;
+}
+
+.val-name{
+    font-weight: 700;
+}
+
+/* .profileHeight{
+    max-height: 800px !important;
+} */
+
+.useraccount-image{
+    padding-right: 10px;
+}

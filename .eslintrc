@@ -1,0 +1,10 @@
+{
+    "extends": [
+        "react-app",
+        "eslint:recommended"
+    ],
+    "eslintIgnore": [
+        "PaymentStatus.js"
+    ]
+
+}

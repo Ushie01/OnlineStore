@@ -1,0 +1,48 @@
+.SignUpPage {
+    margin: auto;
+  
+    
+}
+.nju{
+    background-image: url(../../assets/shoppingcart.webp);
+    background-attachment: fixed;
+}
+
+.signUp{
+    font-size: 40px;
+}
+
+.createAccount{
+    margin: center;
+}
+
+Link{
+    text-decoration-line: none;
+}
+
+.form-inputs p {
+    color: red
+}
+
+.app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-image: url(../../assets/shoppingcart.webp);
+}
+
+.login-form {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
