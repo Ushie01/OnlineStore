@@ -1,6 +1,5 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap'
-import img from '../assets/eur45.jpg'
 
 
 function Slider() {

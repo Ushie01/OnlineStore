@@ -14,20 +14,18 @@ function NavDrop() {
 return (
     <div>
         <div className="dropdown">
-            <ul className="nan btn btn-default dropdown-toggle"
+            <div className="nan btn btn-default dropdown-toggle"
                 type="button"
                 id="dropdownMenuButton1"
                 data-bs-toggle="dropdown"
                 aria-expanded="false" style={style}>
                 Admin
-            </ul>
-            <li className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            </div>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <Link to="/Admin/Orderlist" className="dropdown-item nan" ><img src={order} alt={order} />ORDERS</Link>
-                <hr />
                 <Link to="/Admin/Productslist" className="dropdown-item nan" ><img src={inbox} alt={inbox} />PRODUCTS</Link>
-                <hr />
                 <Link to="/Admin/Userlist" className="dropdown-item nan" ><img src={account} alt={account} />USER</Link>
-            </li>
+            </div>
         </div>
     </div>
 )

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { Link } from "react-router-dom"
-import {fetchProducts} from "../../context/products/productState"
-import {ProductContext} from  "../../context/products/productContext";
+import { fetchProducts } from "../../context/products/productState";
+import { ProductContext } from "../../context/products/productContext";
 import Carousel from 'react-elastic-carousel'
 import useWindowDimensions from '../../utils/windowsWidthsHights';
 import Naira from 'react-naira';
@@ -35,6 +35,7 @@ function SliderTwo() {
 				transitionMs={700}
 				itemPadding={width <= 430 ? [5, 10] : [5, 10]}
 				>
+				<></>
 				{data.products.products && data.products.products.map((post, index) => (        			
 				<div key={index}> 
 					<Link to={`/PostDetail/${post._id}`} key={post._id} style={{ textDecoration: 'none' }} >
@@ -48,7 +49,8 @@ function SliderTwo() {
 						<ul className='list-inline'>
 							<li className="list-inline-item"> Rating : <i className="fa fa-star"></i> { `{ ${post.rating} }` } </li>
 						</ul>
-					    <a className="btn btn-primary addCartC">Add to Cart</a>	
+							<div className="btn btn-primary addCartC">Add to Cart</div>
+							
 					</Link>
 					<hr style={{color:'gray'}}/>	 
 				</div>
@@ -69,9 +71,6 @@ export default SliderTwo
       //   }`)  
       //       .then((data) => setPost(data))
 			// .catch(console.error);
-		    
-
-	
     // Getting product from local state.
     // const productContext = useContext(ProductContext)
 	// const { fetchProducts, products } = productContext

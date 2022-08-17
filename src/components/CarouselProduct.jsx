@@ -36,6 +36,7 @@ const CarouselProduct = () => {
         tiltEasing="cubic-bezier(0.110, 1, 1.000, 0.210)"
         transitions={700}
       >
+        <></>
         {products.products?.map((product) => (
           <Link to={`/PostDetail/${product._id}`} key={product._id} style={{ textDecoration: 'none' }} >
           <div>

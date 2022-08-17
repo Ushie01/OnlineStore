@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+// import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useUser, useCart } from './Hooks/useUser';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -40,18 +40,18 @@ function Navbar() {
             </div>
             <div className="offcanvas-body">
               <hr />
-                <Nav className='nav'>
+                  <div className='nav'>
                     <Link to="/" className='nan'>Home</Link>
                     <Link to="/New" className='nan'>Brand</Link>
                     <Link to="/About" className='nan'>About-Us</Link>
-                  </Nav>
+                  </div>
                   <hr />
-                <Nav className='d-flex ms-auto mr-2' >
+                <div className='d-flex ms-auto mr-2' >
                     {user.isAdmin 
                     ?
-                    <Link to="/Admin" className='AdminNan' > 
+                    <div className='AdminNan' > 
                       <NavDrop />
-                    </Link> 
+                    </div> 
                     : ""}
                     <Link to="/Cart" className='nan'><img src={shopping} alt=''/>
                         <span className="dropbtn badge-pill badge-secondary m-2">
@@ -69,10 +69,10 @@ function Navbar() {
                   ) : (
                   <React.Fragment>
                       <div className="dropdown dropdownprofile">
-                          <ul className="btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
+                          <div className="btn-default dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
                               <img src={account} alt={account} /><span className='userProfile'>{`Hi, ${user.name}`}</span>
-                          </ul>
-                          <li className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          </div>
+                          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                               <Link to="/UserProfile" className="dropdown-item nan" ><img src={account} alt={account} />My Account</Link>
                                <hr />
                               <Link to="/" className="dropdown-item nan" ><img src={order} alt={order} />Orders</Link>
@@ -82,12 +82,12 @@ function Navbar() {
                               <Link to='/' className='dropdown-item nan'><img src={love} alt={love} />Saved Item</Link>
                               <hr />
                               <Link to="/Signout" className='dropdown-item nan'>Sign-Out</Link>
-                          </li>
+                          </div>
                       </div>
                      </React.Fragment>
                     )}
                     <Link to="/Whatsapp" className='nan'><img src={whatsapp} alt=''/></Link>
-                </Nav>
+                </div>
                 <hr />
             </div>
           </div>

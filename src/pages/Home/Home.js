@@ -1,12 +1,9 @@
-import React, {useContext} from 'react'
-import { Routes, Route } from 'react-router-dom'
 import Female from '../../assets/female.svg'
 import Male from '../../assets/male.svg'
 import Transgender from '../../assets/transgender.svg'
 import NewOne from '../../assets/new1.png'
 import EurSix from '../../assets/eur6.jpeg'
 import Eur45 from '../../assets/eur45.jpg'
-import ProducContext from '../../context/products/productContext'
 
 function Home() {
   const style = {
