@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from "react-router-dom";
 import Naira from 'react-naira';
 // import InputSlider from '../../components/InputSlider'
@@ -41,11 +41,11 @@ const New = ({currentPost, data}) => {
            
               <p id="Categories">Categories</p>
               {uniqueCategory && uniqueCategory.map((post, i) => (
-               <div key={i}>
+                <Fragment key={i}>
                   <Link to={`/Brand/${post}`} key={post} className="pge">
                     <p>{post}</p>
                   </Link>
-               </div>
+                </Fragment>
               ))}
             </div>
           </div>

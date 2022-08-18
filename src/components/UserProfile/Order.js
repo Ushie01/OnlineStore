@@ -11,12 +11,16 @@ const Order = () => {
             <p className='address-header'>Orders</p>
           <hr />
           <div className='orderOpenandClose'>
-            <div>
-              <Link to="/UserProfile/Order/OpenOrder" className='closedOrder'>OPEN ORDER(0)</Link>
-            </div>
-            <div>
-              <Link to='/UserProfile/Order/ClosedOrder' className='closedOrder'>CLOSED ORDER(0)</Link>
-            </div>
+            <Link to="/UserProfile/Order/OpenOrder">
+              <button className='btn btn-nav'>
+                open order
+              </button>
+            </Link>
+            <Link to="/UserProfile/Order/ClosedOrder">
+              <button className='btn btn-nav'>
+                closed order
+              </button>
+            </Link>
           </div>
         <Outlet />
       </div>   
