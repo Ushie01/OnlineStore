@@ -61,7 +61,7 @@ const New = ({currentPost, data}) => {
                 <div className='col-md-4' key={i}>
                   <Link to={`/PostDetail/${post._id}`} key={post._id} className="pge">
                     <div className="thumb-wrapper">
-                      <img src={`http://store-betta.herokuapp.com${post.image}`} className="img-fluid imgHome" alt={post.image} />
+                      <img src={`https://store-betta.herokuapp.com${post.image}`} className="img-fluid imgHome" alt={post.image} />
                       <div>
                         <div>{post.brand}</div>
                         <p className='postBrand'>{post.name}</p>

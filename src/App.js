@@ -24,7 +24,6 @@ import CreateProducts from './components/admin/ProductUser/CreateProducts';
 import Pagination from './components/Pagination';
 import UserInfo from './pages/auth/UserInfo';
 import Payment from './pages/auth/Payment';
-// import Categories from './pages/New/Categories';
 import OrderView from './components/admin/Orderlist/OrderView';
 import UserProfile from './components/UserProfile/UserProfile';
 import Account from './components/UserProfile/Account';
@@ -80,7 +79,6 @@ const App = () => {
                        postsPerPage={postsPerPage} 
                        totalPosts={data?.products?.length} 
                        paginate={paginate} /> </> }/>
-                {/* <Route path='/Brand/:category' element={<Categories />}/> */}
                 <Route path='/page/:number' element={<New />}/>
                 <Route path='/About' element={ <About /> } />
                 <Route path='/Contact' element={ <LoginForm /> } />  

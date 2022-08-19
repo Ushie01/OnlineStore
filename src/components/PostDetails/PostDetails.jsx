@@ -93,7 +93,7 @@ function PostDetail() {
       <main>
         <div className="containerImage">
           <div className="containerRow1">
-            <img src={`http://store-betta.herokuapp.com${state.image}`} alt={state.image} className="containRow1"/>
+            <img src={`https://store-betta.herokuapp.com${state.image}`} alt={state.image} className="containRow1"/>
           </div>
           <div className="containerRow2">
             <div className='containerPadding'>              

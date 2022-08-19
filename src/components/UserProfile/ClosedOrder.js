@@ -29,7 +29,7 @@ const ClosedOrder = () => {
                                         value?.orderItems?.map((val) => (
                                             <div className='accountDet'>
                                                 <header key={index}>
-                                                    <img src={`http://store-betta.herokuapp.com${val.image}`}
+                                                    <img src={`https://store-betta.herokuapp.com${val.image}`}
                                                         alt={value.image}
                                                         className='summary-Image'
                                                     />

@@ -37,7 +37,7 @@ function CreateProducts() {
           'Content-Type': 'multipart/form-data',
         },
       }
-      const { data } = await axios.post('http://store-betta.herokuapp.com/api/upload', formData, config)
+      const { data } = await axios.post('https://store-betta.herokuapp.com/api/upload', formData, config)
       setImage(data)
     } catch (error) {
       console.error(error)

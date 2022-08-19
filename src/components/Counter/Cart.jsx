@@ -135,7 +135,7 @@ function Cart() {
                           <div className='rowCart'>
                             <i className="fa fa-times fa-3x m-2 " onClick={() => { deleteItem(value.productId, value.size) }}></i>
                             <div className='CartOne'>
-                              <img src={`http://store-betta.herokuapp.com${value.image}`} alt={value.image} className='cartItem ' />
+                              <img src={`https://store-betta.herokuapp.com${value.image}`} alt={value.image} className='cartItem ' />
                             </div>
                             <div className='CartTwo'>
                               <h1>{`Name: ${value.name}`}</h1>

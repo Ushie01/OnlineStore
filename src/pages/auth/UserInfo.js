@@ -72,7 +72,7 @@ function UserInfo() {
       tx_ref: order.createdOrder._id,
       amount: order.createdOrder.totalPrice,
       currency: "NGN",
-      redirect_url: "http://localhost:3000/PaymentStatus",
+      redirect_url: "https://localhost:3000/PaymentStatus",
       meta: {
           consumer_id: order.createdOrder.user,
           consumer_mac: order.createdOrder.user
@@ -84,7 +84,7 @@ function UserInfo() {
       },
       customizations: {
           title: "Euphorya Brand",
-          logo: "http://www.piedpiper.com/app/themes/joystick-v27/images/logo.png"
+          logo: "https://www.piedpiper.com/app/themes/joystick-v27/images/logo.png"
       }
     }
 
@@ -297,7 +297,7 @@ function UserInfo() {
                 <hr />
                 {userCart && userCart.map((value, index) => {
                   return <header key={index}>
-                            <img src={`http://store-betta.herokuapp.com${value.image}`} 
+                            <img src={`https://store-betta.herokuapp.com${value.image}`} 
                                 alt={value.image} 
                                 className='summary-Image' 
                             />

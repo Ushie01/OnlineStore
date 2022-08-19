@@ -41,7 +41,7 @@ const CarouselProduct = () => {
           <Link to={`/PostDetail/${product._id}`} key={product._id} style={{ textDecoration: 'none' }} >
           <div>
               <figure>
-                <img className="fluid" alt={product.image} src={`http://store-betta.herokuapp.com${product.image}`} />
+                <img className="fluid" alt={product.image} src={`https://store-betta.herokuapp.com${product.image}`} />
                 <h1 className='productBrand'>{product.brand}</h1>
               </figure>
           </div>
