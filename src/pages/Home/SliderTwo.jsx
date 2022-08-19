@@ -48,8 +48,9 @@ function SliderTwo() {
 						<ul className='list-inline'>
 							<li className="list-inline-item"> Rating : <i className="fa fa-star"></i> { `{ ${post.rating} }` } </li>
 						</ul>
-							<div className="btn btn-primary addCartC">Add to Cart</div>
-							
+						<div className="btn btn-primary addCartC">
+							Add to Cart
+						</div>
 					</Link>
 					<hr style={{color:'gray'}}/>	 
 				</div>

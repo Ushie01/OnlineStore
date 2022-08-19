@@ -1,4 +1,4 @@
-const baseUrl = 'http://store-betta.herokuapp.com/api';
+const baseUrl = 'https://store-betta.herokuapp.com/api';
 const baseUrL = 'https://api.facts.ng/v1';
 // const got = require("got");
 
