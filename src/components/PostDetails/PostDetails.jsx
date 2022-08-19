@@ -18,7 +18,7 @@ function PostDetail() {
   //fetching id details
   const [state, setState] = useState([]); 
   const requestDetails = async () => {
-    const res = await fetch(`http://store-betta.herokuapp.com/api/products/${_id}`);
+    const res = await fetch(`https://store-betta.herokuapp.com/api/products/${_id}`);
     const data = await res.json();
     setState(data);
 

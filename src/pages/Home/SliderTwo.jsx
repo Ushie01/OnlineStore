@@ -11,13 +11,11 @@ function SliderTwo() {
 	const context = useContext(ProductContext);
 	const { storeProducts, data } = context;
 	
-	
 	useEffect(() => {
 		fetchProducts()
 		.then(data=>storeProducts(data))
 	}, []); 
 
-	
     return (
     <div>
         <div className="container-fluid">
@@ -39,7 +37,7 @@ function SliderTwo() {
 				<div key={index}> 
 					<Link to={`/PostDetail/${post._id}`} key={post._id} style={{ textDecoration: 'none' }} >
 						<div className="img-box" style={{marginTop: "30px"}} >
-							<img src={`http://store-betta.herokuapp.com${post.image}`} className="img-fluid" alt={post.image} />
+							<img src={`https://store-betta.herokuapp.com${post.image}`} className="img-fluid" alt={post.image} />
 						</div>
 						<h1>{post.brand}</h1>
 						<div className='row'>
