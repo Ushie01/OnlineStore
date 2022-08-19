@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { getProducts } from '../../helpers/api';
 import { validatePostDetails } from '../Validateinfo';
 import { cartToast, alreadyAddCartToast } from '../Hooks/useUser';
-import Naira from 'react-naira';
 import Dropdown from '../Dropdown/Dropdown';
 import "./PostDetails.css";
 
@@ -101,7 +100,7 @@ function PostDetail() {
               <div>
                 <h1 className='containerTitle'>{state.brand}</h1>
                 <h2 style={{color:"gray"}}>{state.name}</h2>
-                <h3 className='containerSpan'><Naira>{state.price}</Naira></h3> 
+                <h3 className='containerSpan'>&#x20A6;{state.price}</h3> 
                 <p>{state.description}</p>
                 <h3>Size --Select Size.</h3>
                 <div>

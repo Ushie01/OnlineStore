@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { useLocation } from '../Hooks/useUser';
 import { cartDeletetToast } from '../Hooks/useUser';
-import Naira from 'react-naira';
 import shopping from '../../assets/local_shipping.svg';
 import empty_cart from '../../assets/empty_cart.png';
 import './Cart.css'
@@ -142,8 +141,8 @@ function Cart() {
                               <h1>{`Name: ${value.name}`}</h1>
                               <h4>{`Quantity: ${value.qty}`}</h4>
                               <h4>{`Size: ${value.size}`}</h4>
-                              <h4>Price: <Naira>{`${(value.price).toLocaleString()}`}</Naira></h4>
-                              <h3>Subtotal : <Naira>{`${(value.price * value.qty).toLocaleString()}`}</Naira></h3>
+                              <h4>Price: &#x20A6;{`${(value.price).toLocaleString()}`}</h4>
+                              <h3>Subtotal : &#x20A6;{`${(value.price * value.qty).toLocaleString()}`}</h3>
                             </div>
                             <div className='CartThree'>
                               <button className="fa fa-plus-square fa-3x" onClick={() => { add(value.productId, value.size) }}></button>
@@ -160,7 +159,7 @@ function Cart() {
                       <div className='container'>
                         <div className='displayInline'>
                           <div className='nnpp'>Total:</div>
-                          <div className='nnp' style={{ color: "black" }}><Naira>{sum}</Naira></div>
+                          <div className='nnp' style={{ color: "black" }}>&#x20A6;{sum}</div>
                         </div>
                       </div>
                     </div>

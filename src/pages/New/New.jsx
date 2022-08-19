@@ -1,6 +1,5 @@
 import React, { useState, Fragment } from 'react';
 import { Link } from "react-router-dom";
-import Naira from 'react-naira';
 // import InputSlider from '../../components/InputSlider'
 import './New.css'
 
@@ -66,7 +65,7 @@ const New = ({currentPost, data}) => {
                       <div>
                         <div>{post.brand}</div>
                         <p className='postBrand'>{post.name}</p>
-                        <p className="item-price"><span><Naira>{post.price}</Naira></span></p>
+                        <p className="item-price"><span>&#x20A6;{post.price}</span></p>
                       </div>
                     </div>
                   </Link>

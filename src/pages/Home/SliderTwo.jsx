@@ -4,7 +4,6 @@ import { fetchProducts } from "../../context/products/productState";
 import { ProductContext } from "../../context/products/productContext";
 import Carousel from 'react-elastic-carousel'
 import useWindowDimensions from '../../utils/windowsWidthsHights';
-import Naira from 'react-naira';
 
 
 function SliderTwo() {   
@@ -44,7 +43,7 @@ function SliderTwo() {
 						</div>
 						<h1>{post.brand}</h1>
 						<div className='row'>
-								<p className="item-pric"><span><Naira>{post.price}</Naira></span></p>	
+								<p className="item-pric">{post.price}</p>	
 						</div>
 						<ul className='list-inline'>
 							<li className="list-inline-item"> Rating : <i className="fa fa-star"></i> { `{ ${post.rating} }` } </li>

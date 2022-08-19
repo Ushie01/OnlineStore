@@ -1,15 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { ProductProvider } from "./context/products/productContext"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(
-  
+ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ProductProvider>
@@ -17,7 +15,8 @@ root.render(
         <ToastContainer/>
       </ProductProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.querySelector('#root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -9,7 +9,6 @@ import {
   successToast, failedToast
 } from '../../components/Hooks/useUser';
 import { flutterWave, postOrder } from '../../helpers/api';
-import Naira from 'react-naira';
 import mark from '../../assets/mark.svg';
 import flutter from '../../assets/Flutterwave.png';
 import whatsapp from '../../assets/whatsapp.svg';
@@ -267,7 +266,7 @@ function UserInfo() {
                 <div className='header-payment'>
                    <header >
                       <p className='totaltopay'>TOTAL TO PAY</p>
-                      <p className='totaltosum'><Naira>{userPrice.add}</Naira></p>
+                      <p className='totaltosum'>&#x20A6;{userPrice.add}</p>
                     </header>
                 </div>
                 <div>
@@ -278,7 +277,7 @@ function UserInfo() {
                       </div>
                       <img src={flutter} alt={flutter} className="mcvisa" />
                     </header>
-                    <button id="saveButton" onClick={(e) => onSubmit(e)}> PAY NOW: <Naira>{userPrice.add}</Naira></button>
+                    <button id="saveButton" onClick={(e) => onSubmit(e)}> PAY NOW: &#x20A6;{userPrice.add}</button>
                     
                 </div> 
               </>
@@ -304,7 +303,7 @@ function UserInfo() {
                             />
                             <div className='summary-Body'>
                               <p className='value-name'>{value.name}</p>
-                              <p className='value-price'><Naira>{value.price}</Naira></p>
+                              <p className='value-price'>&#x20A6;{value.price}</p>
                               <p className='value-quantity'>{`Qty: ${value.qty}`}</p>
                             </div>
                         </header>
@@ -313,17 +312,17 @@ function UserInfo() {
                   <div>
                     <header>
                       <p className='sub-total'>Subtotal</p>
-                      <p className='sub-total'><Naira>{userPrice.add}</Naira></p>
+                      <p className='sub-total'>&#x20A6;{userPrice.add}</p>
                     </header>
                     <header>
                       <p className='sub-total'>Delivery</p>
-                      <p className='sub-figure'><Naira>{userPrice.value}</Naira></p>
+                      <p className='sub-figure'>&#x20A6;{userPrice.value}</p>
                     </header>
                   </div>
                   <hr />
                   <header>
                     <p className='TOTAL'>Total</p>
-                    <p className='TOTAL-FIGURE'><Naira>{userPrice.value + userPrice.add}</Naira></p>
+                    <p className='TOTAL-FIGURE'>&#x20A6;{userPrice.value + userPrice.add}</p>
                   </header>
               </div>
               <div className='order-method-help'>

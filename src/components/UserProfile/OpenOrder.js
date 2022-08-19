@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { myOrders } from '../../helpers/api';
 // import { useCart } from '../Hooks/useUser';
 import order from '../../assets/order.svg';
-import Naira from 'react-naira';
 import Yes from '../../assets/Yes.svg';
 import No from '../../assets/No.svg'
 
@@ -37,7 +36,7 @@ const OpenOrder = () => {
                                             />
                                             <div className='summary-Body'>
                                                 <p className='value-name val-name'>{val.name}</p>
-                                                <p className='value-price'><Naira>{val.price}</Naira></p>
+                                                <p className='value-price'>&#x20A6;{val.price}</p>
                                                 <p className='value-quantity'>{`Qty: ${val.qty}`}</p>
                                                <p className='value-name'>Paid: {value.isPaid === true ? <img src={Yes} alt={Yes} /> : <img src={No} alt={No} />} </p>
                                                 <p className='value-quantity value-quantity-o'>{`Order ID: ${value._id}`}</p>
