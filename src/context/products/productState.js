@@ -7,8 +7,8 @@ export const fetchProducts = async() =>{
 }
 
 export const initialState = {
-    products: [],
-    loading: false
+  products: [],
+  loading: false
 }
 
 

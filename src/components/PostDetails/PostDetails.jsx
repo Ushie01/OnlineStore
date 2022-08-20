@@ -29,7 +29,6 @@ function PostDetail() {
       localStorage.setItem("cart", "[]");
     }
   };
-
   React.useEffect (() => {
     requestDetails();
   }, []);
