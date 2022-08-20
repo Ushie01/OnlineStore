@@ -64,7 +64,7 @@ function PostDetail() {
       if (cart.length === 0) {
         cart.push(details);
         cartToast();
-        window.location = `/PostDetail/${_id}`
+        window.location = `https://astounding-sprinkles-539909.netlify.app//PostDetail/${_id}`
       } else {
         let res = cart.find(function (element) {
           return (element.productId === _id && element.size === details.size);
@@ -73,7 +73,7 @@ function PostDetail() {
         if (res === undefined) {
           cart.push(details);
           cartToast()
-          window.location = `/PostDetail/${_id}`
+          window.location = `https://astounding-sprinkles-539909.netlify.app//PostDetail/${_id}`
         } else {
           alreadyAddCartToast()
         }
