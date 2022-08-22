@@ -199,7 +199,7 @@ function Cart() {
                             </p>
                           </div>
                           <hr />
-                          <Link to="/UserInfo">
+                          <Link to="/CheckOut">
                             <button id="insButton" onClick={(e) => { handleSubmit(e) }}> CheckOut  </button>
                           </Link>
                         </div>

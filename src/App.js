@@ -11,7 +11,7 @@ import Cart from './components/Counter/Cart'
 import About from './pages/About'
 import Footer from './components/Footer'
 import LoginForm from './pages/Contact';
-import PostDetail from './components/PostDetails/PostDetails'
+import ProductDetails from './components/ProductDetails/ProductDetails'
 import Signup from './pages/auth/Signup.jsx'
 import Signin from './pages/auth/Signin.jsx'
 import Signout from './pages/auth/Signout';
@@ -22,8 +22,6 @@ import EditUser from './components/admin/Userlist/EditUser';
 import EditProducts from './components/admin/ProductUser/EditProducts'
 import CreateProducts from './components/admin/ProductUser/CreateProducts';
 import Pagination from './components/Pagination';
-import UserInfo from './pages/auth/UserInfo';
-import Payment from './pages/auth/Payment';
 import OrderView from './components/admin/Orderlist/OrderView';
 import UserProfile from './components/UserProfile/UserProfile';
 import Account from './components/UserProfile/Account';
@@ -34,7 +32,6 @@ import CreateNewLogin from './pages/auth/CreateNewLogin';
 import ClosedOrder from './components/UserProfile/ClosedOrder';
 import OpenOrder from './components/UserProfile/OpenOrder';
 import CheckOut from './components/Counter/CheckOut';
-import PaymentStatus from './pages/auth/PaymentStatus';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -72,7 +69,7 @@ const App = () => {
         <NavBar />
             <Routes>
                 <Route path='/' element={<> <CarouselProduct /> <Home /> <SliderTwo /> <UserViews /> </> } />
-                <Route path='/PostDetail/:_id' element={<> <PostDetail /> </>} />
+                <Route path='/ProductDetails/:_id' element={<> <ProductDetails /> </>} />
                 <Route path='/New' element={<><New 
                        data={data}
                        currentPost={currentPost} /> <Pagination 
@@ -89,8 +86,6 @@ const App = () => {
                        postsPerPage={postsPerPage} 
                        totalPosts={data?.products?.length} 
                        paginate={paginate} /></>} />
-                <Route path='/UserInfo' element={<UserInfo />}/>
-                <Route path='/Payment' element={<Payment />}/>
                 <Route path='/Admin/ProductsList/EditProducts/:_id' element={<EditProducts />}/>
                 <Route path='/Admin/ProductsList/CreateProducts' element={<CreateProducts />}/>      
                 <Route path='/Admin/Userlist/EditUser/:id' element={<EditUser />}/>
@@ -100,7 +95,7 @@ const App = () => {
                 <Route path="Signin" element={<Signin />} />   
                 <Route path="/Signout" element={<Signout/>} />  
                 <Route path='/CheckOut' element={<CheckOut />} />
-                <Route path='/PaymentStatus' element={<PaymentStatus />}/>
+                {/* <Route path='/PaymentStatus' element={<PaymentStatus />}/> */}
                 <Route path='/UserProfile' element={<UserProfile />} >
                   <Route index='Account' element={<Account />}/>
                   <Route path='Account' element={<Account />}/>

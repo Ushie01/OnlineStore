@@ -9,18 +9,17 @@ function Productslist({currentPost}) {
   const [data, setData] = React.useState();
   const [loading, setLoading] = React.useState(false);
   const { user } = useUser();
-
   const fetchData = async () => {
     const products = await getProductsDetails();
     setData(products)
   }
+  
   
   useEffect(() => {
     setLoading(true)
     if (loading) {
       fetchData();
     }
-
     return () => setLoading(false)
   }, [loading]);
 

@@ -176,6 +176,11 @@ p .address-header{
     color: #ff7b00;
 }
 
+.failedTransaction{
+    font-size: xx-large;
+    color: red;
+}
+
 
 
 @media screen and (min-width:900px) {
@@ -214,4 +219,5 @@ p .address-header{
     .payment-method {
         margin-top: 20px;
     }
+
 }

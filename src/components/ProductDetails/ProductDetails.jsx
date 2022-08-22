@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { getProducts } from '../../helpers/api';
-import { validatePostDetails } from '../Validateinfo';
+import { validateProductDetails } from '../Validateinfo';
 import { cartToast, alreadyAddCartToast } from '../Hooks/useUser';
 import Dropdown from '../Dropdown/Dropdown';
-import "./PostDetails.css";
+import "./ProductDetails.css";
 
 
-function PostDetail() {
+function ProductDetails() {
   const { _id } = useParams();
   const [size, setSize] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -56,7 +56,7 @@ function PostDetail() {
       quantity
     }
 
-    setErrors(validatePostDetails(values));
+    setErrors(validateProductDetails(values));
     const details = { ...data, qty: quantity };
 
     if (values.quantity !== '' && values.size !== '') {
@@ -64,7 +64,7 @@ function PostDetail() {
       if (cart.length === 0) {
         cart.push(details);
         cartToast();
-        window.location = `https://astounding-sprinkles-539909.netlify.app//PostDetail/${_id}`
+        window.location = `https://astounding-sprinkles-539909.netlify.app//ProductDetails/${_id}`
       } else {
         let res = cart.find(function (element) {
           return (element.productId === _id && element.size === details.size);
@@ -73,7 +73,7 @@ function PostDetail() {
         if (res === undefined) {
           cart.push(details);
           cartToast()
-          window.location = `https://astounding-sprinkles-539909.netlify.app//PostDetail/${_id}`
+          window.location = `https://astounding-sprinkles-539909.netlify.app//ProductDetails/${_id}`
         } else {
           alreadyAddCartToast()
         }
@@ -145,7 +145,7 @@ function PostDetail() {
 }
 
 
-export default PostDetail;
+export default ProductDetails;
 
 
   // console.log(data.products);

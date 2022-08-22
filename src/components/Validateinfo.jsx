@@ -1,4 +1,4 @@
-export const validatePostDetails = (values) => {
+export const validateProductDetails = (values) => {
     let errors = {};
 
     if (!values.size) {

@@ -58,7 +58,7 @@ function EditProducts() {
           'Content-Type': 'multipart/form-data',
         },
       }
-      const { data } = await axios.post('https://store-betta.herokuapp.com/api/uploads', formData, config)
+      const { data } = await axios.post('/api/uploads', formData, config)
       setImage(data)
     } catch (error) {
       console.error(error)

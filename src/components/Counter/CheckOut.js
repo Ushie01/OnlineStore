@@ -6,18 +6,21 @@ import {
   useCart,
   usePrice,
   useUser,
-  successToast, failedToast
-} from '../../components/Hooks/useUser';
-import { flutterWave, postOrder } from '../../helpers/api';
+  // successToast, failedToast
+} from '../Hooks/useUser';
+import { postOrder } from '../../helpers/api';
+import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 import mark from '../../assets/mark.svg';
 import flutter from '../../assets/Flutterwave.png';
 import whatsapp from '../../assets/whatsapp.svg';
-import Loader from '../../components/Loader';
-import './UserInfo.css'
+import Loader from '../Loader';
+import success from '../../assets/success.gif';
+import failed from '../../assets/failed.gif';
+import './CheckOut.css'
 // import { toast } from 'react-toastify';
 
 
-function UserInfo() {
+function CheckOut() {
   const { state, city, setStateId } = useLocation();
   const { user } = useUser();
   const { userAddress } = useAddress();
@@ -29,6 +32,8 @@ function UserInfo() {
   const [region, setRegion] = useState('');
   const [lg, setLg] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [responseOrder, setResponseOrder] = useState([])
+  const [status, setStatus] = useState([]);
 
 
   const handleState = (e) => {
@@ -48,7 +53,7 @@ function UserInfo() {
     }
     console.log(values);
     localStorage.setItem('userAddress', JSON.stringify(values));
-    window.location = '/UserInfo'
+    window.location = '/CheckOut'
   }
 
   
@@ -65,57 +70,49 @@ function UserInfo() {
       itemsPrice: userPrice.add,
       totalPrice: userPrice.value
     };
+
     const order = await postOrder(data);
-
-
-    const flutterWaveData = {
-      tx_ref: order.createdOrder._id,
-      amount: order.createdOrder.totalPrice,
-      currency: "NGN",
-      redirect_url: "https://localhost:3000/PaymentStatus",
-      meta: {
-          consumer_id: order.createdOrder.user,
-          consumer_mac: order.createdOrder.user
-      },
-      customer: {
-          email: user.email,
-          phonenumber: userAddress.phonenumber,
-          name: user.name,
-      },
-      customizations: {
-          title: "Euphorya Brand",
-          logo: "https://www.piedpiper.com/app/themes/joystick-v27/images/logo.png"
-      }
-    }
-
-
-    const res = await flutterWave(flutterWaveData);
-    console.log(res);
-
-
-    if (res) {
-      successToast();
-      window.location = res.data.link;
-    } else {
-      failedToast();
-      return window.location = '/Userinfo';
-    }
-
-
     setIsSubmitted(true);
+    setResponseOrder(order);
+
     if (isSubmitted) return <Loader />
+
   }
 
+  const config = {
+    public_key: 'FLWPUBK_TEST-5a27093be49cc89f5b682e9981e12341-X',
+    tx_ref: Date.now(),
+    amount: responseOrder?.createdOrder?.totalPrice,
+    currency: 'NGN',
+    payment_options: 'card,mobilemoney,ussd',
+    customer: {
+      email: user?.email,
+      phonenumber: userAddress?.phonenumber,
+      name: user?.name,
+    },
+    customizations: {
+      title: 'Euphorya Brand',
+      description: 'Payment for items in cart',
+      logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+    },
+  };
+
+  const handleFlutterPayment = useFlutterwave(config);
    
   return (
-    <div>
+     <>
+     
+      {
+        !status.status ? 
+           <div>
         <div className='cash-fluid'>
+          
           <div className='cash-row container'>
             <div className='check-out-row'>
               <h1 className='check-out-header'>CHECKOUT</h1>
               <div className='address-method'>
                 {
-                userAddress.address ?
+                  userAddress.address ?
                     <>
                       <p className='address-header'>
                         <img src={mark} alt={mark} />1. ADDRESS DETAILS
@@ -129,10 +126,10 @@ function UserInfo() {
                             <h3>{userAddress.address}</h3>
                           </div>
                           <p className='Change' type="button" onClick={(e) => {handleSubmit(e)}}>CHANGE</p>
-                        </header>
+                    </header>
                       </>
-                  : 
-                  <>
+                      : 
+                      <>
                    <p className='address-header'>1. ADDRESS DETAILS</p>
                   <hr />
                  <form>
@@ -243,7 +240,7 @@ function UserInfo() {
                 <>
                   <p className='address-header'><img src={mark} alt={mark} style={{color:"green"}} /> 2. DELIVERY METHOD</p>
                   <hr />
-                  <input type="radio" className="fav_language" value="HTML" />
+                  <input type="checkbox" className="fav_language" value="HTML" />
                   <label htmlFor="html" className='radioLabel'> Door Delivery</label><br />
                   <h3 className='radioLabel'>Delivered between 
                   <span className='deliverySpan'>Thursday 7 Jul</span> and
@@ -272,13 +269,31 @@ function UserInfo() {
                 <div>
                     <header >
                       <div>
-                        <input type="radio" name="payment"/>
+                          <input type="checkbox" name="payment" onClick={(e) => onSubmit(e)} disabled={isSubmitted} />
                         <label className='totaltopay'>Pay With Flutterwave</label>
                       </div>
                       <img src={flutter} alt={flutter} className="mcvisa" />
-                    </header>
-                    <button id="saveButton" onClick={(e) => onSubmit(e)}> PAY NOW: &#x20A6;{userPrice.add}</button>
-                    
+                      </header>
+                      {
+                        responseOrder?.createdOrder?.totalPrice
+                          ?
+                          <button
+                            id="saveButton" 
+                              onClick={() => {
+                                handleFlutterPayment({
+                                  callback: (response) => {
+                                    setStatus(response);
+                                    closePaymentModal() // this will close the modal programmatically 
+                                  },
+                                onClose: () => {}
+                                });
+                              }}
+                          >
+                            PAY NOW: &#x20A6;{userPrice.add}
+                          </button>
+                        :
+                        ""
+                      }
                 </div> 
               </>
                 : 
@@ -332,12 +347,37 @@ function UserInfo() {
                 <Link to="/Payment">
                   <button id="helpButton" > LIVE CHAT  <img src={whatsapp} alt={whatsapp}  className="whatsapp-help"/> </button>
                 </Link>
-              </div>
+                </div>
             </div>
           </div>
         </div>
-    </div>
+          </div>
+          :
+          <>
+            {
+            status?.status === "successful"
+            && status?.amount === userPrice.value
+            && status?.currency === "NGN" 
+            ?
+            <div className='container'>
+              <div className='row'>
+                <img src={success} alt={success} />
+                <h1><Link to='/New'>Return To Shopping</Link></h1>
+              </div>
+            </div>
+            :
+            <div className='container'>
+              <div className='row'>
+                <p className='failedTransaction'>Transaction Failed</p>
+                <img src={failed} alt={failed} />
+                <h1><Link to='/New'>Return To Shopping</Link></h1>
+              </div>
+            </div>
+            }
+          </>
+      }
+    </>
   )
 }
 
-export default UserInfo;
+export default CheckOut;

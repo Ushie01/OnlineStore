@@ -23,7 +23,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <Link to="/"><img src={logo} width="120px" className="mr-2" alt=''/></Link>
-          <div className="navbar-toggler" style={{color:"black"}} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <div className="navbar-toggler" style={{color:"black"}} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
               <Link to="/Cart" className='nan'><img src={shopping} alt='' />
                   <span className="dropbtn badge-pill badge-secondary m-2">
                     {
