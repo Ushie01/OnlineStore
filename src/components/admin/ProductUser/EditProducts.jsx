@@ -13,11 +13,10 @@ function EditProducts() {
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const { _id } = useParams();
-  
   const [state, setState] = useState([]);
-    const requestDetails = async () => {
+
+  const requestDetails = async () => {
     const res = await getSingleProductDetails(_id);
       setState(res);
       setName(res.name);
@@ -58,7 +57,7 @@ function EditProducts() {
           'Content-Type': 'multipart/form-data',
         },
       }
-      const { data } = await axios.post('/api/uploads', formData, config)
+      const { data } = await axios.post('https://store-betta.herokuapp.com/api/upload', formData, config)
       setImage(data)
     } catch (error) {
       console.error(error)

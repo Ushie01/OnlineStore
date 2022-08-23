@@ -1,6 +1,5 @@
 const baseUrl = 'https://store-betta.herokuapp.com/api';
 const baseUrL = 'https://api.facts.ng/v1';
-// const got = require("got");
 
 
 //Login n Register Export

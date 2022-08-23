@@ -1429,3 +1429,7 @@ tbody:hover {
   font-weight: 900;
 }
 
+.img-fluid{
+  height:600px;
+   object-fit: cover;
+}

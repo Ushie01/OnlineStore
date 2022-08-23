@@ -27,7 +27,7 @@ const CarouselProduct = () => {
     <div className="main-container">
       <Carousel
         enableAutoPlay={true}
-        autoPlaySpeed={6000}
+        autoPlaySpeed={2500}
         showArrows={width <= 430 ? false : true}
         pagination={false}
         itemsToShow={width <= 430 ? 1 : 2}
@@ -38,7 +38,7 @@ const CarouselProduct = () => {
       >
         <></>
         {products.products?.map((product) => (
-          <Link to={`/PostDetail/${product._id}`} key={product._id} style={{ textDecoration: 'none' }} >
+          <Link to={`/ProductDetails/${product._id}`} key={product._id} style={{ textDecoration: 'none' }} >
           <div>
               <figure>
                 <img className="fluid" alt={product.image} src={`https://store-betta.herokuapp.com${product.image}`} />
