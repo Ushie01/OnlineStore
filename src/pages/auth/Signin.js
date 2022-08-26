@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { validateSignIn } from "../../components/Validateinfo";
 import { getLoginUser } from "../../helpers/api";
@@ -11,21 +11,33 @@ const Signin = () => {
   const [errors, setErrors] = useState({});
   const [err, setErr] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    window.gapi.load('client:auth2', () => {
+      window.gapi.client.init({
+        clientId: '388830439247-jkdb9v4986lljr0f5a8jrqj0v60p9b7k.apps.googleusercontent.com',
+        scope: 'email'
+      }).then(() => {
+        console.log(window.gapi.auth2.getAuthInsutance());
+      });
+    })
+  }, [])
   
   const login = async (e) => {
-      e.preventDefault();
-      const values = {
-        password,
-        email
-      }
+    e.preventDefault();
+    const values = {
+      password,
+      email
+    }
 
-  setErrors(validateSignIn(values))
-  const payload = await getLoginUser(values);
-  if (payload.message) {
-    setErr(payload.message)
-    failedToast();
-    return
-  } 
+    setErrors(validateSignIn(values))
+    const payload = await getLoginUser(values);
+    if (payload.message) {
+      setErr(payload.message)
+      failedToast();
+      return
+    } 
+
     localStorage.setItem('user', JSON.stringify(payload));
     successToast();
     setIsSubmitted(true);
@@ -74,7 +86,11 @@ const Signin = () => {
        
         {errors.password && <p style={{ color: "red" }}>{errors.password}</p>} 
        
-        <label><Link to="/createnewpassword">Forget Password</Link></label><br />
+        <label>
+          <Link to="/createnewpassword">
+            Forget Password
+          </Link>
+          </label><br />
          {err && <p style={{color:"red"}}>{err}</p>}
         <button
           className="btn btn-success SigninButton"

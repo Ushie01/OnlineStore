@@ -294,6 +294,22 @@ export const postOrder = async (payload) => {
     }
 }
 
+export const upLoadFile = async (payload) => { 
+    try {
+        const userDetails = localStorage.getItem('user');
+        const parsedDetails = JSON.parse(userDetails);
+        return await( await fetch(`${baseUrl}/upload`, {
+        method: 'POST',
+            headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${parsedDetails.token}`,
+        },
+        body: JSON.stringify(payload)
+    })).json()
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 
 // https://api.facts.ng/v1

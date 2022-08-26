@@ -87,6 +87,7 @@ function Navbar() {
                      </React.Fragment>
                     )}
                     <Link to="/Whatsapp" className='nan'><img src={whatsapp} alt=''/></Link>
+                    <></>
                 </div>
                 <hr />
             </div>

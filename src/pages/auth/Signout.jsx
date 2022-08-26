@@ -8,12 +8,11 @@ function Signout() {
         if (user) {
             setUser(user);
         }
-        
     }, [])
     return (
-        <>
-          {window.location = "/"}
-        </>
+      <>
+        {window.location = "/"}
+      </>
   )
 }
 

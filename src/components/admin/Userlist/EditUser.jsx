@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { updateUser } from '../../../helpers/api';
 import { getUserProfile } from '../../../helpers/api';
 import Loader from '../../Loader';
@@ -10,6 +10,7 @@ function EditUser() {
   const [isAdmin, setIsAdmin] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [state, setState] = useState([]);
     const requestDetails = async () => {
@@ -34,7 +35,7 @@ function EditUser() {
 
     await updateUser(_id, data);
     setIsSubmitted(true);
-    window.location = '/Admin/Userlist';
+    navigate('/Admin/Userlist');
   }
   
 

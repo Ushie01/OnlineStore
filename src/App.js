@@ -12,8 +12,8 @@ import About from './pages/About'
 import Footer from './components/Footer'
 import LoginForm from './pages/Contact';
 import ProductDetails from './components/ProductDetails/ProductDetails'
-import Signup from './pages/auth/Signup.jsx'
-import Signin from './pages/auth/Signin.jsx'
+import Signup from './pages/auth/Signup'
+import Signin from './pages/auth/Signin'
 import Signout from './pages/auth/Signout';
 import Orderlist from './components/admin/Orderlist/Orderlist';
 import Productslist from './components/admin/ProductUser/Productslist'

@@ -1,5 +1,5 @@
-import React, { useState} from 'react';
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import { createUser } from '../../helpers/api';
 import { validateSignUp } from '../../components/Validateinfo';
 import { successToast, failedToast } from '../../components/Hooks/useUser';
@@ -16,6 +16,8 @@ function Signup() {
   const [errors, setErrors] = useState({});
   const [err, setErr] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState();
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ function Signup() {
       password,
       confirmPassword
     }
+
 
     //Sign-Up Form Validation
     setErrors(validateSignUp(values));
@@ -37,7 +40,7 @@ function Signup() {
     localStorage.setItem('user', JSON.stringify(payload));
     successToast();
     setIsSubmitted(true);
-    window.location = "/"
+    navigate('/')
   }
 
 

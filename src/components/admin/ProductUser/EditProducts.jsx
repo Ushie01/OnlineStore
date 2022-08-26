@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { updateProductsDetails } from '../../../helpers/api';
 import { getSingleProductDetails } from '../../../helpers/api';
+
 
 function EditProducts() {
   const [name, setName] = useState('')
@@ -15,6 +16,7 @@ function EditProducts() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { _id } = useParams();
   const [state, setState] = useState([]);
+  const navigate = useNavigate();
 
   const requestDetails = async () => {
     const res = await getSingleProductDetails(_id);
@@ -44,13 +46,13 @@ function EditProducts() {
     }
     await updateProductsDetails(_id, data);
     setIsSubmitted(true);
-    window.location = '/Admin/Productslist';
+    navigate('/Admin/Productslist');
   }
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0]
     const formData = new FormData()
-    formData.append('image', file)
+    formData.append('image', file, file.name)
     try {
       const config = {
         headers: {
